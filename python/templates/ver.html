@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ver estudiantes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Lista de estudiantes</h1>
+
+{% for e in estudiantes %}
+
+<p>
+Nombre: {{e.nombre}}<br>
+Promedio: {{e.promedio}}<br>
+Estado: {% if e.promedio >= 3 %}Aprueba{% else %}Reprueba{% endif %}
+</p>
+
+<hr>
+
+{% endfor %}
+
+<a href="/">Volver</a>
+
+</body>
+</html>

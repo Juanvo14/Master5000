@@ -1,0 +1,38 @@
+body {
+    font-family: monospace;
+    background-color: #121227;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-family: Arial;
+    color: #00f7ff;
+}
+
+a {
+    
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    background-color: #1e293b;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+a:hover {
+    background-color: #38bdf8;
+    color: black;
+}
+
+input{
+    border-color: black;
+    font-family: monospace;
+}
+
+button{
+    border-color: black;
+    background-color: floralwhite;
+    font-family: monospace;
+}

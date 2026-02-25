@@ -1,0 +1,108 @@
+from flask import Flask, request, redirect, render_template
+import os
+
+app = Flask(__name__)
+
+archivo = "estudiantes.txt"
+
+# Crear archivo si no existe
+if not os.path.exists(archivo):
+    open(archivo, "w").close()
+
+
+
+# CARGAR ESTUDIANTES
+
+def cargar_estudiantes():
+    estudiantes = []
+
+    with open(archivo, "r") as f:
+        for linea in f:
+            datos = linea.strip().split(",")
+
+            if len(datos) == 5:
+                estudiantes.append({
+                    "nombre": datos[0],
+                    "nota1": float(datos[1]),
+                    "nota2": float(datos[2]),
+                    "nota3": float(datos[3]),
+                    "promedio": float(datos[4])
+                })
+
+    return estudiantes
+
+
+
+# GUARDAR ESTUDIANTE
+
+def guardar_estudiante(nombre, n1, n2, n3, promedio):
+
+    with open(archivo, "a") as f:
+        f.write(f"{nombre},{n1},{n2},{n3},{promedio}\n")
+
+
+
+# PÁGINA PRINCIPAL
+
+@app.route("/")
+def inicio():
+
+    return render_template("index.html")
+
+
+
+# AGREGAR ESTUDIANTE
+
+@app.route("/agregar", methods=["GET", "POST"])
+def agregar():
+
+    if request.method == "POST":
+
+        nombre = request.form["nombre"]
+
+        n1 = float(request.form["nota1"])
+        n2 = float(request.form["nota2"])
+        n3 = float(request.form["nota3"])
+
+        if not (0 <= n1 <= 5 and 0 <= n2 <= 5 and 0 <= n3 <= 5):
+            return "Error: las notas deben estar entre 0 y 5"
+
+        promedio = round((n1 + n2 + n3) / 3, 2)
+
+        guardar_estudiante(nombre, n1, n2, n3, promedio)
+
+        return redirect("/ver")
+
+    return render_template("agregar.html")
+
+
+
+# VER ESTUDIANTES
+
+@app.route("/ver")
+def ver():
+
+    estudiantes = cargar_estudiantes()
+
+    return render_template("ver.html", estudiantes=estudiantes)
+
+
+# MEJOR ESTUDIANTE
+
+@app.route("/mejor")
+def mejor():
+
+    estudiantes = cargar_estudiantes()
+
+    if not estudiantes:
+        return "No hay estudiantes"
+
+    mejor_est = max(estudiantes, key=lambda x: x["promedio"])
+
+    return render_template("mejor.html", mejor=mejor_est)
+
+
+
+# EJECUTAR SERVIDOR
+
+app.run(debug=True)
