@@ -5,8 +5,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    background-color: #e8d5b7;
-    color: rgb(255, 255, 255);
+    background-color: #000000;
+    color: white;
     text-align: center;
 }
 
@@ -22,15 +22,17 @@ a {
     display: block;
     margin: 10px;
     padding: 10px;
-    background-color: #0e2430;
-    color: rgb(0, 0, 0);
+    background-color: #5a5a5a;
+    color: white;
     text-decoration: none;
     border-radius: 8px;
 }
 
 a:hover {
-    background-color: #e8d5b7;
-    color: black;
+    background-color: white;
+    color:black ;
+    
+    
 }
 
 input{
@@ -44,7 +46,7 @@ input{
 
 button{
     border-color: black;
-    background-color: #0e2430;
+    background-color: #5a5a5a;
     font-family: "Monserrat", sans-serif;
 }
 
@@ -59,4 +61,5 @@ h2{
     font-size: 40px;
     color: lightgreen;
 }
+
 
