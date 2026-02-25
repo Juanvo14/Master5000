@@ -5,7 +5,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    background-color: #000000;
+    background-color: #e8d5b7;
     color: rgb(255, 255, 255);
     text-align: center;
 }
@@ -22,14 +22,14 @@ a {
     display: block;
     margin: 10px;
     padding: 10px;
-    background-color: #5a5a5a;
+    background-color: #0e2430;
     color: rgb(0, 0, 0);
     text-decoration: none;
     border-radius: 8px;
 }
 
 a:hover {
-    background-color: #ffffff;
+    background-color: #e8d5b7;
     color: black;
 }
 
@@ -44,7 +44,7 @@ input{
 
 button{
     border-color: black;
-    background-color: #5a5a5a;
+    background-color: #0e2430;
     font-family: "Monserrat", sans-serif;
 }
 
@@ -59,3 +59,4 @@ h2{
     font-size: 40px;
     color: lightgreen;
 }
+
