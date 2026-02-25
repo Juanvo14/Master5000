@@ -1,13 +1,20 @@
 body {
-    font-family: monospace;
-    background-color: #121227;
-    color: white;
+    
+
+    font-family: "Cascadia Mono", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
     text-align: center;
 }
 
 h1 {
-    font-family: Arial;
-    color: #00f7ff;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 a {
@@ -15,24 +22,40 @@ a {
     display: block;
     margin: 10px;
     padding: 10px;
-    background-color: #1e293b;
-    color: white;
+    background-color: #5a5a5a;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     border-radius: 8px;
 }
 
 a:hover {
-    background-color: #38bdf8;
+    background-color: #ffffff;
     color: black;
 }
 
 input{
     border-color: black;
-    font-family: monospace;
+    background-color: darkgray;
+    font-family: "Montserrat", sans-serif;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 button{
     border-color: black;
-    background-color: floralwhite;
-    font-family: monospace;
+    background-color: #5a5a5a;
+    font-family: "Monserrat", sans-serif;
+}
+
+h2{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+#mejor{
+    font-size: 40px;
+    color: lightgreen;
 }
