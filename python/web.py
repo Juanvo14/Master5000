@@ -64,8 +64,8 @@ def agregar():
         n2 = float(request.form["nota2"])
         n3 = float(request.form["nota3"])
 
-        if not (0 <= n1 <= 5 and 0 <= n2 <= 5 and 0 <= n3 <= 5):
-            return "Error: las notas deben estar entre 0 y 5"
+        if not (1 <= n1 <= 5 and 1 <= n2 <= 5 and 1 <= n3 <= 5):
+            return "Error: las notas deben estar entre 1 y 5"
 
         promedio = round((n1 + n2 + n3) / 3, 2)
 
@@ -86,7 +86,6 @@ def ver():
 
     return render_template("ver.html", estudiantes=estudiantes)
 
-
 # MEJOR ESTUDIANTE
 
 @app.route("/mejor")
@@ -101,10 +100,25 @@ def mejor():
 
     return render_template("mejor.html", mejor=mejor_est)
 
+#Buscar Estudiantes
 
+@app.route("/buscar", methods=["GET", "POST"])
+def buscar():
+    resultado = None
+    
+    if request.method == "POST":
+        nombre_buscar = request.form["nombre"].lower()
+        
+        with open("estudiantes.txt", "r", encoding="utf-8") as archivo:
+            for linea in archivo:
+                datos = linea.strip().split(",")
+                nombre = datos[0].lower()
+                
+                if nombre_buscar in nombre:
+                    resultado = datos
+    
+    return render_template("buscar.html", resultado=resultado)
 
 # EJECUTAR SERVIDOR
 
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+app.run(debug=True)
