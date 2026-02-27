@@ -13,9 +13,7 @@ body {
 h1 {
     text-shadow: 0 4px 4px #5a5a5a;
   font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
+
 }
 
 a {
@@ -30,7 +28,8 @@ a {
 }
 
 a:hover {
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 1s ease;
+    transition: background-color 1s ease;
     box-shadow: 0 4px 4px #5a5a5abf;
     background-color: white;
     color:black ;
@@ -68,6 +67,10 @@ h2{
 
 .numbers{
     color: lightgreen;
+}
+
+#volver{
+    font-family: "Cascadia Mono", sans-serif;
 }
 
 
