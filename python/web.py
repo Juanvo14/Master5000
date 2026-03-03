@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 archivo = "estudiantes.txt"
 
-# Crear archivo si no existe
+
 if not os.path.exists(archivo):
     open(archivo, "w").close()
 
 
 
-# CARGAR ESTUDIANTES
+
 
 def cargar_estudiantes():
     estudiantes = []
@@ -33,7 +33,7 @@ def cargar_estudiantes():
 
 
 
-# GUARDAR ESTUDIANTE
+
 
 def guardar_estudiante(nombre, n1, n2, n3, promedio):
 
@@ -42,7 +42,7 @@ def guardar_estudiante(nombre, n1, n2, n3, promedio):
 
 
 
-# PÁGINA PRINCIPAL
+
 
 @app.route("/")
 def inicio():
@@ -51,7 +51,7 @@ def inicio():
 
 
 
-# AGREGAR ESTUDIANTE
+
 
 @app.route("/agregar", methods=["GET", "POST"])
 def agregar():
@@ -77,7 +77,7 @@ def agregar():
 
 
 
-# VER ESTUDIANTES
+
 
 @app.route("/ver")
 def ver():
@@ -86,7 +86,7 @@ def ver():
 
     return render_template("ver.html", estudiantes=estudiantes)
 
-# MEJOR ESTUDIANTE
+
 
 @app.route("/mejor")
 def mejor():
@@ -100,7 +100,7 @@ def mejor():
 
     return render_template("mejor.html", mejor=mejor_est)
 
-#Buscar Estudiantes
+
 
 @app.route("/buscar", methods=["GET", "POST"])
 def buscar():
@@ -120,11 +120,12 @@ def buscar():
     return render_template("buscar.html", resultado=resultado)
 
 
-# IMPORTANTE PARA RENDER
+
 if __name__ == "__main__":
     puerto = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=puerto)
   
+
 
 
 
